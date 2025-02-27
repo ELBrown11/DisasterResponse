@@ -19,7 +19,7 @@ nltk.download(['punkt', 'wordnet'])
 # Function to load data from SQLite database
 def load_data(database_filepath):
     engine = create_engine(f'sqlite:///{database_filepath}')
-    df = pd.read_sql_table('df', engine)
+    df = pd.read_sql('SELECT * FROM DisasterMessages', engine)
 
     X = df['message'].values  # Message column as input
     Y = df.iloc[:, 4:].values  # All categories as output
@@ -51,12 +51,17 @@ def build_model():
     ])
 
     # Hyperparameter tuning using GridSearchCV
+  
     parameters = {
-        'clf__estimator__n_estimators': [50, 100],  # Number of trees in the forest
-        'clf__estimator__min_samples_split': [2, 4]  # Minimum samples per split
-    }
+    'clf__estimator__n_estimators': [10, 50],  
+    'clf__estimator__min_samples_split': [2, 3],  
+    'clf__estimator__max_depth': [None, 10]  
+}
 
-    cv = GridSearchCV(pipeline, param_grid=parameters, verbose=2, n_jobs=-1)
+    cv = GridSearchCV(model, param_grid=parameters,
+                 cv=2,
+                 n_jobs=-1,
+                 verbose=2);
 
     return cv
 
