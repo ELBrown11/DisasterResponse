@@ -1,5 +1,8 @@
 import sys
-
+import pandas as pd
+import sqlite3
+import numpy as np
+from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
     """Load messages and categories datasets, merge them on 'id'."""
@@ -7,7 +10,6 @@ def load_data(messages_filepath, categories_filepath):
     categories = pd.read_csv(categories_filepath)
     df = pd.merge(messages, categories, on='id')
     return df
-
 
 def clean_data(df):
     """Cleans the merged dataset by splitting categories, renaming columns, and removing duplicates."""
@@ -37,8 +39,8 @@ def save_data(df, database_filename):
     df.to_sql('DisasterMessages', engine, index=False, if_exists='replace')  # 'if_exists' prevents duplication
 
 def main():
+    """Main function to execute data loading, cleaning, and saving."""
     if len(sys.argv) == 4:
-
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
 
         print('Loading data...\n    MESSAGES: {}\n    CATEGORIES: {}'
@@ -60,7 +62,6 @@ def main():
               'to as the third argument. \n\nExample: python process_data.py '\
               'disaster_messages.csv disaster_categories.csv '\
               'DisasterResponse.db')
-
 
 if __name__ == '__main__':
     main()
