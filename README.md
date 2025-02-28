@@ -6,6 +6,10 @@ The results of these pipelines are displayed through an interactive Flask web ap
 - A pie chart displaying the percentage of disaster-related vs. non-disaster-related messages.
 - A text classifier that predicts the topic of an input message.
 - A word cloud highlighting the most common words in disaster-related messages.
+![landing_page](images/landing_page.png)
+![search](images/search.png)
+![word cloud](images/search_and_wordcloud.png)
+
 ## Project Outline
 * ETL Pipeline
   * wrote a python script to preprocess and clean data
