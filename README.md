@@ -10,19 +10,46 @@ The results of these pipelines are displayed through an interactive Flask web ap
 ![search](images/search.png)
 ![word cloud](images/search_and_wordcloud.png)
 
-## Project Outline
-* ETL Pipeline
-  * wrote a python script to preprocess and clean data
-  * loads datasets
-  * merges the datasets
-  * cleans data
-  * stores data into SQLite database     
-* Machine Learning Pipeline
-  * loads data stored via ETL pipeline from database
-  * split data into training and test
-  * building text and machine learning pipeline
-  * use GridSearchCV() model 
-* Flask Web App
+
+## **Running the Python Scripts**  
+
+### **Step 1: Process the Data (ETL Pipeline)**  
+This script loads, cleans, and saves the dataset into an SQLite database.  
+
+Run the following command:  
+```bash
+python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
+```
+
+---
+
+### **Step 2: Train the Model (ML Pipeline)**  
+This script trains a machine learning model to classify disaster messages.  
+
+Run:  
+```bash
+python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
+```
+
+---
+
+ 
+
+---
+
+## **Running the Web Application**  
+
+### **Step 3: Launch the Web App**  
+Navigate to the `app` directory and start the Flask web application:  
+```bash
+cd app
+python run.py
+```
+Then, open a web browser and go to:  
+```
+http://localhost:3001
+```
+ 
 
 
 
@@ -30,7 +57,13 @@ The results of these pipelines are displayed through an interactive Flask web ap
 * languages: Python, SQL
 * libraries: pandas, matplotlib, numpy, sqlite, sqlalchemy,nltk, sklearn, re
 
-# Tools & Software
-* Google Colab
-* Google Documents
-* VS Code
+## **Repository Files Explanation**  
+
+- **`data/process_data.py`** → Extracts, transforms, and loads data into `DisasterResponse.db`.  
+- **`models/train_classifier.py`** → Trains and saves the disaster response classification model.  
+- **`app/run.py`** → Starts the Flask web app for message classification.  
+- **`DisasterResponse.db`** → SQLite database storing cleaned disaster messages and categories.  
+- **`classifier.pkl`** → Trained model for classifying new disaster messages.
+- **`` 
+- **`requirements.txt`** → List of required Python packages. 
+
