@@ -21,7 +21,10 @@ def clean_data(df):
     categories.columns = category_colnames
     
     # Convert category values to numeric (vectorized approach)
-    categories = categories.applymap(lambda x: int(x[-1]))  # More efficient than looping
+    categories = categories.applymap(lambda x: int(x[-1]))  
+
+    # Drop rows where any category column contains values other than 0 or 1
+    categories = categories[(categories == 0) | (categories == 1)].dropna()
     
     # Drop original categories column & merge cleaned categories back
     df.drop('categories', axis=1, inplace=True)
