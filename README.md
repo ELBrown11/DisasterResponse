@@ -51,12 +51,6 @@ http://localhost:3001
 ```
  
 
-
-
-# Languages & Libraries
-* languages: Python, SQL
-* libraries: pandas, matplotlib, numpy, sqlite, sqlalchemy,nltk, sklearn, re
-
 ## **Repository Files Explanation**  
 
 - **`data/process_data.py`** → Extracts, transforms, and loads data into `DisasterResponse.db`.  
