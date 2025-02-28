@@ -64,6 +64,7 @@ http://localhost:3001
 - **`app/run.py`** → Starts the Flask web app for message classification.  
 - **`DisasterResponse.db`** → SQLite database storing cleaned disaster messages and categories.  
 - **`classifier.pkl`** → Trained model for classifying new disaster messages.
-- **`` 
+- **`ETL_Pipeline_Preparation.ipynb`**  → Notebook containing prep for ETL pipeline
+- **`ML_Pipeline_Preparation.ipynb`**  → Notebook containing prep for ML pipeline
 - **`requirements.txt`** → List of required Python packages. 
 
