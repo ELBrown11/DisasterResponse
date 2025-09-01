@@ -1,4 +1,4 @@
-# Machine Learning for Disaster Response
+# Data Pipelines for Crisis Response: ETL, ML, and Visualization
 This project leverages ETL (Extract, Transform, Load) and Machine Learning pipelines to process and classify disaster-related messages. The goal is to help emergency responders quickly identify and prioritize messages during crises.
 
 The results of these pipelines are displayed through an interactive Flask web application, which includes:
